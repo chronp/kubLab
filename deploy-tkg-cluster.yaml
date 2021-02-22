@@ -1,0 +1,26 @@
+apiVersion: run.tanzu.vmware.com/v1alpha1
+kind: TanzuKubernetesCluster
+metadata:
+  name: tkg-cluster-01
+  namespace: namespace-01
+spec:
+  distribution:
+    fullVersion: v1.17.8+vmware.1-tkg.1.5417466
+  topology:
+    controlPlane:
+      count: 1
+      class: best-effort-xsmall
+      storageClass: vsan-default-storage-policy
+    workers:
+      count: 1
+      class: best-effort-xsmall
+      storageClass: vsan-default-storage-policy
+  settings:
+    network:
+      cni:
+        name: calico
+      services:
+        cidrBlocks: ["172.16.100.0/24"]
+      pods:
+        cidrBlocks: ["172.16.200.0/24"]
+~
