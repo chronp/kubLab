@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-on-tkg-deployment
+  labels:
+    app: app-on-tkg
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-on-tkg
+  template:
+    metadata:
+      labels:
+        app: app-on-tkg
+    spec:
+      containers:
+      - name: app-on-tkg
+        image: nginx:1.16
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tkg-loadbalancer
+spec:
+  selector:
+    app: app-on-tkg
+  ports:
+  - port: 80
+    targetPort: 80
+  type: LoadBalancer
