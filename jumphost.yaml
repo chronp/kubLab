@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jumpbox
+  namespace: namespace-01                    #REPLACE YOUR-NAMESPACE
+spec:
+  containers:
+  - image: "nginx:1.16"
+    name: jumpbox
+    command: [ "/bin/bash", "-c", "--" ]
+    args: [ "apt-get update; apt-get install -y openssh-server; mkdir /root/.ssh; cp /root/ssh/ssh-privatekey /root/.ssh/id_rsa; chmod 600 /root/.ssh/id_rsa; while true; do sleep 30; done;" ]
+    volumeMounts:
+      - mountPath: "/root/ssh"
+        name: ssh-key
+        readOnly: true
+  volumes:
+    - name: ssh-key
+      secret:
+        secretName: tkg-cluster-01-ssh         #REPLACE YOUR-CLUSTER-NAME
