@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 ##set namespace
 NAMESPACE="namespace-01"
 kubectl config use-context $NAMESPACE
