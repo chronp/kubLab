@@ -3,6 +3,9 @@
 NAMESPACE="namespace-01"
 kubectl config use-context $NAMESPACE
 
+#copy the root ca to the jumphost
+kubectl cp dell-ca.crt namespace-01/jumpbox:/root/ca.crt
+
 ##get worker VMs
 VM=$(kubectl get vm)
 for VMNAME in $VM
