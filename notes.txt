@@ -1,3 +1,0 @@
-kubectl exec -it jumpbox  /usr/bin/scp /root/ca.crt vmware-system-user@$VMIP:/home/vmware-system-user/ca.crt
-kubectl exec -it jumpbox  /usr/bin/ssh vmware-system-user@$VMIP 'sudo bash -c "cat /home/vmware-system-user/ca.crt >> /etc/pki/tls/certs/ca-bundle.crt"'
-kubectl exec -it jumpbox  /usr/bin/ssh vmware-system-user@$VMIP 'sudo systemctl restart docker.service'
