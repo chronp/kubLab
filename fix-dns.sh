@@ -15,6 +15,6 @@ do
      #log in to accept new ssh key
      kubectl exec -it jumpbox -- /usr/bin/ssh -o StrictHostKeyChecking=accept-new vmware-system-user@$VMIP 'pwd'
      #add harbor.dell.local to local resolver
-     kubectl exec -it jumpbox  /usr/bin/ssh vmware-system-user@$VMIP 'sudo sed -i '$ a 192.168.1.229 harbor.dell.local' /etc/hosts'
+     kubectl exec -it jumpbox  /usr/bin/ssh vmware-system-user@$VMIP "sudo sed -i '$ a 192.168.1.229 harbor.dell.local' /etc/hosts"
   fi
 done
