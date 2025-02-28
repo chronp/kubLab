@@ -1,0 +1,28 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: nginx-deployment2
+  labels:
+    app: nginx2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx2
+  template:
+    metadata:
+      labels:
+        app: nginx2
+    spec:
+      volumes:
+        - name: my-volume
+          persistentVolumeClaim:
+            claimName: paul-nfs-claim
+      containers:
+        - name: nginx2
+          image: nginx
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: my-volume
+              mountPath: /nfs
