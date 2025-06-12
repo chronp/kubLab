@@ -6,7 +6,7 @@ model = LiteLLMModel(
             model_id="meta/llama3-70b-instruct",
 #            model_id="qwen/qwen2.5-coder-32b-instruct",
             api_base="https://integrate.api.nvidia.com/v1",
-            api_key="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",
+            api_key="add key here",
             flatten_messages_as_text=True
         )
 agent = CodeAgent (tools=[], model=model, add_base_tools=True)
@@ -15,7 +15,7 @@ agent.run("Find the best hotel rates for a trip to New Hampshire starting June 1
 #from openai import OpenAI
 #client = OpenAI(
 #        base_url = "https://integrate.api.nvidia.com/v1",
-#        api_key = "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"
+#        api_key = ""
 #        )
 
 #completion = client.chat.completions.create(
@@ -36,7 +36,7 @@ model = LiteLLMModel(
             model_id="meta/llama3-70b-instruct",
 #            model_id="qwen/qwen2.5-coder-32b-instruct",
             api_base="https://integrate.api.nvidia.com/v1",
-            api_key="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",
+            api_key="",
             flatten_messages_as_text=True
         )
 agent = CodeAgent (tools=[], model=model, add_base_tools=True)
@@ -45,7 +45,7 @@ agent.run("Find the best hotel rates for a trip to New Hampshire starting June 1
 #from openai import OpenAI
 #client = OpenAI(
 #        base_url = "https://integrate.api.nvidia.com/v1",
-#        api_key = "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"
+#        api_key = ""
 #        )
 
 #completion = client.chat.completions.create(
